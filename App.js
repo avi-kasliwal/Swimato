@@ -6,12 +6,13 @@ import {
   Text,
   View,
 } from "react-native";
+import { Searchbar } from "react-native-paper";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.search}>
-        <Text>Search</Text>
+        <Searchbar placeholder="Search" />
       </View>
       <View style={styles.list}>
         <Text>List</Text>
