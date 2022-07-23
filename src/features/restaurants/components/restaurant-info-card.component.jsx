@@ -2,7 +2,9 @@ import React from "react";
 import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
+import open from "../../../../assets/open";
 import styled from "styled-components";
+import { Image, Text, View } from "react-native";
 
 const Address = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
@@ -16,6 +18,18 @@ const Info = styled.View`
 
 const Rating = styled.View`
   flex-direction: row;
+`;
+
+const Right = styled.View`
+  flex: 1;
+  padding-left: ${(props) => props.theme.space[3]};
+  justify-content: space-between;
+  flex-direction: row;
+`;
+
+const Row = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
   padding-top: ${(props) => props.theme.space[2]};
   padding-bottom: ${(props) => props.theme.space[2]};
 `;
@@ -38,14 +52,14 @@ const Title = styled.Text`
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
     name = "Dominos",
-    icon,
+    icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
     photos = [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Domino%27s_pizza_logo.svg/120px-Domino%27s_pizza_logo.svg.png",
     ],
     address = "Supertech Village 1 Market",
     isOpenNow = true,
     rating = 4,
-    isClosedTemporarily,
+    isClosedTemporarily = true,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -55,11 +69,21 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Title>{name}</Title>
-        <Rating>
-          {ratingArray.map((_, idx) => (
-            <SvgXml xml={star} width={20} height={20} key={idx} />
-          ))}
-        </Rating>
+
+        <Row>
+          <Rating>
+            {ratingArray.map((_, idx) => (
+              <SvgXml xml={star} width={20} height={20} key={idx} />
+            ))}
+          </Rating>
+
+          {/* Right Side */}
+          <Right>
+            {isClosedTemporarily && <Text>CLOSED TEMPORARILY</Text>}
+            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            <Image style={{ width: 20, height: 20 }} source={{ uri: icon }} />
+          </Right>
+        </Row>
 
         <Address>{address}</Address>
       </Info>
