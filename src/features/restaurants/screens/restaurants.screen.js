@@ -5,7 +5,7 @@ import RestaurantInfoCard from "../components/restaurant-info-card.component";
 
 const RestaurantsList = styled.View`
   flex-grow: 1;
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]}; ;
 `;
 
 const SafeArea = styled.SafeAreaView`
@@ -14,7 +14,7 @@ const SafeArea = styled.SafeAreaView`
 `;
 
 const SearchContainer = styled.View`
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]}; ;
 `;
 
 const RestaurantsScreen = () => {
