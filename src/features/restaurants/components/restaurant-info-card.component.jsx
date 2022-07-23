@@ -1,54 +1,20 @@
 import React from "react";
-import { Card } from "react-native-paper";
 import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
-import styled from "styled-components";
-import { Image, Text, View } from "react-native";
+import { Image } from "react-native";
+import { Text } from "../../../components/text.component";
 import { Spacer } from "../../../components/spacer.component";
 
-const Address = styled.Text`
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.caption};
-  color: ${(props) => props.theme.colors.ui.primary};
-`;
-
-const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Rating = styled.View`
-  flex-direction: row;
-`;
-
-const Right = styled.View`
-  flex: 1;
-  padding-left: ${(props) => props.theme.space[3]};
-  justify-content: flex-end;
-  flex-direction: row;
-`;
-
-const Row = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
-  padding-top: ${(props) => props.theme.space[2]};
-  padding-bottom: ${(props) => props.theme.space[2]};
-`;
-
-const RestaurantCard = styled(Card)`
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
-`;
-
-const RestaurantCardCover = styled(Card.Cover)`
-  padding: ${(props) => props.theme.space[3]};
-  background-color: ${(props) => props.theme.colors.ui.quaternary};
-`;
-
-const Title = styled.Text`
-  font-family: ${(props) => props.theme.fonts.heading};
-  font-size: ${(props) => props.theme.fontSizes.title};
-  color: ${(props) => props.theme.colors.ui.primary};
-`;
+import {
+  Address,
+  Info,
+  Rating,
+  Right,
+  Row,
+  RestaurantCard,
+  RestaurantCardCover,
+} from "./restaurant-info-card.styles";
 
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   const {
@@ -69,7 +35,7 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
     <RestaurantCard elevation={5}>
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
-        <Title>{name}</Title>
+        <Text variant="label">{name}</Text>
         <Row>
           <Rating>
             {ratingArray.map((_, idx) => (
@@ -79,7 +45,7 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
           {/* Right Side */}
           <Right>
             {isClosedTemporarily && (
-              <Text variant="label" style={{ color: "red" }}>
+              <Text variant="caption" style={{ color: "red" }}>
                 CLOSED TEMPORARILY
               </Text>
             )}
