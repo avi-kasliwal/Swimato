@@ -5,6 +5,7 @@ import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 import styled from "styled-components";
 import { Image, Text, View } from "react-native";
+import { Spacer } from "../../../components/spacer.component";
 
 const Address = styled.Text`
   font-family: ${(props) => props.theme.fonts.body};
@@ -23,7 +24,7 @@ const Rating = styled.View`
 const Right = styled.View`
   flex: 1;
   padding-left: ${(props) => props.theme.space[3]};
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-direction: row;
 `;
 
@@ -69,22 +70,27 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Title>{name}</Title>
-
         <Row>
           <Rating>
             {ratingArray.map((_, idx) => (
               <SvgXml xml={star} width={20} height={20} key={idx} />
             ))}
           </Rating>
-
           {/* Right Side */}
           <Right>
-            {isClosedTemporarily && <Text>CLOSED TEMPORARILY</Text>}
-            {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-            <Image style={{ width: 20, height: 20 }} source={{ uri: icon }} />
+            {isClosedTemporarily && (
+              <Text variant="label" style={{ color: "red" }}>
+                CLOSED TEMPORARILY
+              </Text>
+            )}
+            <Spacer position="left" size="large">
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <Image style={{ width: 20, height: 20 }} source={{ uri: icon }} />
+            </Spacer>
           </Right>
         </Row>
-
         <Address>{address}</Address>
       </Info>
     </RestaurantCard>
