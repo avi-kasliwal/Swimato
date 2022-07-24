@@ -5,7 +5,6 @@ import open from "../../../../assets/open";
 import { Image } from "react-native";
 import { Text } from "../../../components/text.component";
 import { Spacer } from "../../../components/spacer.component";
-
 import {
   Address,
   Info,
