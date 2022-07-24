@@ -17,17 +17,18 @@ const SearchContainer = styled.View`
 `;
 
 const RestaurantsScreen = () => {
-  const restaurantContext = useContext(RestaurantsContext);
-  console.log(restaurantContext);
+  const { restaurants, isLoading, error } = useContext(RestaurantsContext);
   return (
     <SafeArea>
       <SearchContainer>
         <Searchbar placeholder="Search" />
       </SearchContainer>
       <RestaurantList
-        data={restaurantContext.restaurants}
-        renderItem={() => <RestaurantInfoCard />}
-        keyExtractor={(item) => item.id}
+        data={restaurants}
+        renderItem={({ item }) => {
+          return <RestaurantInfoCard restaurant={item} />;
+        }}
+        keyExtractor={(item) => item.name}
       />
     </SafeArea>
   );
