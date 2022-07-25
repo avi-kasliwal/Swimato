@@ -1,5 +1,5 @@
 import { FlatList } from "react-native";
-import { Searchbar } from "react-native-paper";
+import { ActivityIndicator, Searchbar } from "react-native-paper";
 import styled from "styled-components";
 import RestaurantInfoCard from "../components/restaurant-info-card.component";
 import { SafeArea } from "../../../components/safe-area.component";
@@ -23,13 +23,17 @@ const RestaurantsScreen = () => {
       <SearchContainer>
         <Searchbar placeholder="Search" />
       </SearchContainer>
-      <RestaurantList
-        data={restaurants}
-        renderItem={({ item }) => {
-          return <RestaurantInfoCard restaurant={item} />;
-        }}
-        keyExtractor={(item) => item.name}
-      />
+      {isLoading ? (
+        <ActivityIndicator animating={true} size={"large"} />
+      ) : (
+        <RestaurantList
+          data={restaurants}
+          renderItem={({ item }) => {
+            return <RestaurantInfoCard restaurant={item} />;
+          }}
+          keyExtractor={(item) => item.name}
+        />
+      )}
     </SafeArea>
   );
 };
