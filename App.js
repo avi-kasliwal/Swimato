@@ -27,7 +27,7 @@ const Maps = () => {
 const Settings = () => {
   return (
     <View>
-      <Text>Maps</Text>
+      <Text>Settings</Text>
     </View>
   );
 };
@@ -73,6 +73,7 @@ export default function App() {
                   },
                   tabBarActiveTintColor: "teal",
                   tabBarInactiveTintColor: "gray",
+                  headerShown: false,
                 })}
               >
                 <Tab.Screen name="Restaurants" component={RestaurantsScreen} />

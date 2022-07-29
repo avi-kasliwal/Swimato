@@ -22,10 +22,11 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
     photos = [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Domino%27s_pizza_logo.svg/120px-Domino%27s_pizza_logo.svg.png",
     ],
-    address = "Supertech Village 1 Market",
+    vicinity = "Supertech Village 1 Market",
     isOpenNow = true,
     rating = 4,
     isClosedTemporarily = true,
+    placeId,
   } = restaurant;
 
   const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -38,7 +39,12 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
         <Row>
           <Rating>
             {ratingArray.map((_, idx) => (
-              <SvgXml xml={star} width={20} height={20} key={idx} />
+              <SvgXml
+                xml={star}
+                width={20}
+                height={20}
+                key={`star-${placeId}-${idx}`}
+              />
             ))}
           </Rating>
           {/* Right Side */}
@@ -56,7 +62,7 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
             </Spacer>
           </Right>
         </Row>
-        <Address>{address}</Address>
+        <Address>{vicinity}</Address>
       </Info>
     </RestaurantCard>
   );

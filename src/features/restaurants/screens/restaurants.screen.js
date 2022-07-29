@@ -1,10 +1,11 @@
 import { FlatList } from "react-native";
-import { ActivityIndicator, Searchbar } from "react-native-paper";
+import { ActivityIndicator } from "react-native-paper";
 import styled from "styled-components";
 import RestaurantInfoCard from "../components/restaurant-info-card.component";
 import { SafeArea } from "../../../components/safe-area.component";
 import { useContext } from "react";
 import { RestaurantsContext } from "../../../services/restaurants/restaurant.context";
+import Search from "../components/search.component";
 
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
@@ -12,17 +13,11 @@ const RestaurantList = styled(FlatList).attrs({
   },
 })``;
 
-const SearchContainer = styled.View`
-  padding: ${(props) => props.theme.space[3]}; ;
-`;
-
 const RestaurantsScreen = () => {
   const { restaurants, isLoading, error } = useContext(RestaurantsContext);
   return (
     <SafeArea>
-      <SearchContainer>
-        <Searchbar placeholder="Search" />
-      </SearchContainer>
+      <Search />
       {isLoading ? (
         <ActivityIndicator animating={true} size={"large"} />
       ) : (
