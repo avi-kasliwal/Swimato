@@ -6,6 +6,7 @@ import { SafeArea } from "../../../components/safe-area.component";
 import { useContext } from "react";
 import { RestaurantsContext } from "../../../services/restaurants/restaurant.context";
 import Search from "../components/search.component";
+import { FavouritesContext } from "../../../services/favourites/favourites.context";
 
 const RestaurantList = styled(FlatList).attrs({
   contentContainerStyle: {
@@ -15,6 +16,8 @@ const RestaurantList = styled(FlatList).attrs({
 
 const RestaurantsScreen = ({ navigation }) => {
   const { restaurants, isLoading } = useContext(RestaurantsContext);
+  const { favourites } = useContext(FavouritesContext);
+
   return (
     <SafeArea>
       <Search />
