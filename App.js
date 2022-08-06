@@ -8,10 +8,7 @@ import {
   useFonts as latoUseFonts,
   Lato_400Regular,
 } from "@expo-google-fonts/lato";
-import { RestaurantsContextProvider } from "./src/services/restaurants/restaurant.context";
-import { LocationContextProvider } from "./src/services/location/location.context";
 import Navigation from "./src/infrastructure/navigation";
-import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 export default function App() {
@@ -31,13 +28,13 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <AuthenticationContextProvider>
-          <FavouritesContextProvider>
+          {/* <FavouritesContextProvider>
             <LocationContextProvider>
-              <RestaurantsContextProvider>
-                <Navigation />
-              </RestaurantsContextProvider>
+              <RestaurantsContextProvider> */}
+          <Navigation />
+          {/* </RestaurantsContextProvider>
             </LocationContextProvider>
-          </FavouritesContextProvider>
+          </FavouritesContextProvider> */}
         </AuthenticationContextProvider>
       </ThemeProvider>
     </>
