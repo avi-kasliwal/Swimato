@@ -5,6 +5,7 @@ import {
   AccountContainer,
   AuthButton,
   AuthInput,
+  Title,
 } from "../components/account.style";
 import { Text } from "../../../components/text.component";
 import { Spacer } from "../../../components/spacer.component";
@@ -18,6 +19,7 @@ const RegisterScreen = ({ navigation }) => {
   return (
     <AccountBackground>
       <AccountCover />
+      <Title>~Swi~Mato~</Title>
       <AccountContainer>
         <AuthInput
           label="E-mail"
