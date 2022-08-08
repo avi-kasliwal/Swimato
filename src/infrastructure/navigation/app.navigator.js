@@ -1,12 +1,8 @@
-import React, { useContext } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Button, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import RestaurantsNavigator from "./restaurants.navigator";
 import MapScreen from "../../features/map/screens/map.screen";
-import { SafeArea } from "../../components/safe-area.component";
-import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { RestaurantsContextProvider } from "../../services/restaurants/restaurant.context";
 import { LocationContextProvider } from "../../services/location/location.context";
 import { FavouritesContextProvider } from "../../services/favourites/favourites.context";

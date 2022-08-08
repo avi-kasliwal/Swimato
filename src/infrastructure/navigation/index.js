@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Text } from "react-native";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import AccountNavigator from "./acount.navigator";
 import AppNavigator from "./app.navigator";

@@ -6,7 +6,7 @@ export const colors = {
   },
   ui: {
     primary: "#262626",
-    secondary: "#757575",
+    secondary: "#CAF2E1",
     tertiary: "#F1F1F1",
     quaternary: "#FFFFFF",
     disabled: "#DEDEDE",
