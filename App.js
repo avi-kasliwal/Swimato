@@ -10,6 +10,7 @@ import {
 } from "@expo-google-fonts/lato";
 import Navigation from "./src/infrastructure/navigation";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
   const [oswaldLoaded] = oswaldUseFonts({
@@ -29,6 +30,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <AuthenticationContextProvider>
           <Navigation />
+          <StatusBar />
         </AuthenticationContextProvider>
       </ThemeProvider>
     </>
